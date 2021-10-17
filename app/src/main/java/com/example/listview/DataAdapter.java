@@ -40,7 +40,7 @@ public class DataAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.item_name, null);
 
         //Dat chu cho tung view trong danh sach.
-        TextView textView = (TextView) view.findViewById(R.id.tv_name);
+        TextView textView = (TextView) view.findViewById(R.id.buttonStatus);
         textView.setText(items[i]);
 
         //Tra ve view ket qua.
