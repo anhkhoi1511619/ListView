@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class DataAdapter extends ArrayAdapter<DataAdapterInfo.ListItem> {
         TextView textName;
         TextView detailText;
         LinearLayout textDetailInfo;
+        Button displayDetailInfo;
     }
 
     public DataAdapter(Context context, int resource,
@@ -61,6 +64,15 @@ public class DataAdapter extends ArrayAdapter<DataAdapterInfo.ListItem> {
 //        holder.buttonStatus.toString().set
         holder.detailText = (TextView) view.findViewById(R.id.textView);
         holder.detailText.setText(item.detail);
+
+        holder.displayDetailInfo = (Button) view.findViewById(R.id.displayDetailInfo);
+        holder.displayDetailInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((ListView)viewGroup).performItemClick(view,i,R.id.displayDetailInfo);
+            }
+        });
+
         holder.textDetailInfo = view.findViewById(R.id.include_view).findViewById(R.id.layoutText);
         if(item.Status == 0){
             holder.textDetailInfo.setVisibility(View.GONE);

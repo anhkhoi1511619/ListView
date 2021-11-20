@@ -2,13 +2,17 @@ package com.example.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String SETTING_INTENT_FLAG = "isSetting";
     private ListView listView;
     ArrayList<DataAdapterInfo.ListItem> listItems;
     DataAdapterInfo dataAdapterInfo;
@@ -25,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
         listItems = dataAdapterInfo.getInstance().getListItems();
         dataAdapter = new DataAdapter(this, 0, listItems);
         listView.setAdapter(dataAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (view.getId()){
+                    case R.id.displayDetailInfo:{
+                        Intent intent = new Intent(MainActivity.this, WebViewListActivity.class);
+                        intent.putExtra(SETTING_INTENT_FLAG, true);
+                        startActivity(intent);
+                        break;
+                    }
+                }
+            }
+
+        });
     }
 
     public void Test(boolean isTest){
