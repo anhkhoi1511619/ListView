@@ -6,6 +6,7 @@
 
 
     <LinearLayout
+        android:id="@+id/layoutText"
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_weight="1"
@@ -22,10 +23,10 @@
             android:fillViewport="true"
             android:scrollbarSize="9dp"
             android:scrollbarStyle="insideInset"
-            android:scrollbarThumbVertical="@android:drawable/screen_background_light_transparent" >
+            android:scrollbarThumbVertical="@android:drawable/screen_background_light_transparent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView_detailList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="8dp"
